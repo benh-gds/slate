@@ -4,10 +4,8 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>API Reference</title>
+    <title>API Documentation</title>
 
-    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
-    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <style>
       .highlight table td { padding: 5px; }
 .highlight table pre { margin: 0; }
@@ -88,10 +86,12 @@
   color: #90a959;
 }
     </style>
-      <script src="javascripts/all.js"></script>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all_nosearch.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;]">
+  <body class="index" data-languages="[]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,246 +101,896 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
         </div>
-        <div class="search">
-          <input type="text" class="search" id="input-search" placeholder="Search">
-        </div>
-        <ul class="search-results"></ul>
       <div id="toc">
       </div>
-        <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
-            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
-        </ul>
     </div>
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <h1 id="gov-uk-pay-api">GOV.UK Pay Api</h1>
 
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p><a name="overview"></a></p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<h2 id="overview">Overview</h2>
 
-<p>This example API documentation page was created with <a href="https://github.com/tripit/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&rsquo;s documentation.</p>
+<p>GOV.UK Pay Api</p>
 
-<h1 id="authentication">Authentication</h1>
+<h3 id="version-information">Version information</h3>
 
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p><em>Version</em> : 1.0.0</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<h3 id="uri-scheme">URI scheme</h3>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
+<p><em>Host</em> : publicapi.pymnt.uk<br>
+<em>Schemes</em> : HTTPS</p>
 
-<blockquote>
-<p>Make sure to replace <code class="prettyprint">meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p><a name="paths"></a></p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<h2 id="paths">Paths</h2>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p><a name="newpayment"></a></p>
 
-<p><code class="prettyprint">Authorization: meowmeowmeow</code></p>
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-<h1 id="kittens">Kittens</h1>
-
-<h2 id="get-all-kittens">Get All Kittens</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<h3 id="create-new-payment">Create new payment</h3>
+<pre class="highlight plaintext"><code>POST /v1/payments
 </code></pre>
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
+<h4 id="description">Description</h4>
 
-<p>This endpoint retrieves all kittens.</p>
+<p>Create a new payment for the account associated to the Authorisation token. The Authorisation token needs to be specified in the &lsquo;authorization&rsquo; header as &#39;authorization: Bearer YOUR_API_KEY_HERE&rsquo;</p>
 
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/api/kittens</code></p>
-
-<h3 id="query-parameters">Query Parameters</h3>
+<h4 id="parameters">Parameters</h4>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
 <th>Default</th>
-<th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td><strong>Body</strong></td>
+<td><strong>body</strong>  <br><em>required</em></td>
+<td>requestPayload</td>
+<td><a href="#createpaymentrequest">CreatePaymentRequest</a></td>
+<td></td>
 </tr>
 </tbody></table>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-<h2 id="get-a-specific-kitten">Get a Specific Kitten</h2>
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-<pre class="highlight shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre>
-
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="nt">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can&rsquo;t use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-<h3 id="http-request">HTTP Request</h3>
-
-<p><code class="prettyprint">GET http://example.com/kittens/&lt;ID&gt;</code></p>
-
-<h3 id="url-parameters">URL Parameters</h3>
+<h4 id="responses">Responses</h4>
 
 <table><thead>
 <tr>
-<th>Parameter</th>
+<th>HTTP Code</th>
 <th>Description</th>
+<th>Schema</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
+<td><strong>201</strong></td>
+<td>Created</td>
+<td><a href="#paymentwithalllinks">PaymentWithAllLinks</a></td>
+</tr>
+<tr>
+<td><strong>400</strong></td>
+<td>Bad request</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td>Credentials are required to access this resource</td>
+<td>No Content</td>
+</tr>
+<tr>
+<td><strong>422</strong></td>
+<td>Invalid attribute value: description. Must be less than or equal to 255 characters length</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Downstream system error</td>
+<td><a href="#payment-error">Payment Error</a></td>
 </tr>
 </tbody></table>
 
-          <h1 id="errors">Errors</h1>
+<h4 id="consumes">Consumes</h4>
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files&hellip;just save them to the `includes` folder and add them to the top of your `index.md`&rsquo;s frontmatter. Files are included in the order listed.</aside>
+<ul>
+<li><code class="prettyprint">application/json</code></li>
+</ul>
 
-<p>The Kittn API uses the following error codes:</p>
+<h4 id="produces">Produces</h4>
+
+<ul>
+<li><code class="prettyprint">application/json</code></li>
+</ul>
+
+<p><a name="searchpayments"></a></p>
+
+<h3 id="search-payments">Search payments</h3>
+<pre class="highlight plaintext"><code>GET /v1/payments
+</code></pre>
+
+<h4 id="description">Description</h4>
+
+<p>Search payments by reference, state, &#39;from&rsquo; and &#39;to&rsquo; date. The Authorisation token needs to be specified in the &#39;authorization&rsquo; header as &#39;authorization: Bearer YOUR_API_KEY_HERE&rsquo;</p>
+
+<h4 id="parameters">Parameters</h4>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+<th>Default</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request &ndash; Your request sucks</td>
+<td><strong>Query</strong></td>
+<td><strong>display_size</strong>  <br><em>optional</em></td>
+<td>Number of results to be shown per page, should be a positive integer (optional, defaults to 500)</td>
+<td>string</td>
+<td></td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized &ndash; Your API key is wrong</td>
+<td><strong>Query</strong></td>
+<td><strong>from_date</strong>  <br><em>optional</em></td>
+<td>From date of payments to be searched (this date is inclusive). Example=2015-08-13T12:35:00Z</td>
+<td>string</td>
+<td></td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden &ndash; The kitten requested is hidden for administrators only</td>
+<td><strong>Query</strong></td>
+<td><strong>page</strong>  <br><em>optional</em></td>
+<td>Page number requested for the search, should be a positive integer (optional, defaults to 1)</td>
+<td>string</td>
+<td></td>
 </tr>
 <tr>
-<td>404</td>
-<td>Not Found &ndash; The specified kitten could not be found</td>
+<td><strong>Query</strong></td>
+<td><strong>reference</strong>  <br><em>optional</em></td>
+<td>Your payment reference to search</td>
+<td>string</td>
+<td></td>
 </tr>
 <tr>
-<td>405</td>
-<td>Method Not Allowed &ndash; You tried to access a kitten with an invalid method</td>
+<td><strong>Query</strong></td>
+<td><strong>state</strong>  <br><em>optional</em></td>
+<td>State of payments to be searched. Example=success</td>
+<td>enum (range[created, started, submitted, success, failed, cancelled, error)</td>
+<td></td>
 </tr>
 <tr>
-<td>406</td>
-<td>Not Acceptable &ndash; You requested a format that isn&rsquo;t json</td>
+<td><strong>Query</strong></td>
+<td><strong>to_date</strong>  <br><em>optional</em></td>
+<td>To date of payments to be searched (this date is exclusive). Example=2015-08-14T12:35:00Z</td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h4 id="responses">Responses</h4>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>OK</td>
+<td><a href="#paymentsearchresults">PaymentSearchResults</a></td>
 </tr>
 <tr>
-<td>410</td>
-<td>Gone &ndash; The kitten requested has been removed from our servers</td>
+<td><strong>401</strong></td>
+<td>Credentials are required to access this resource</td>
+<td>No Content</td>
 </tr>
 <tr>
-<td>418</td>
-<td>I&rsquo;m a teapot</td>
+<td><strong>422</strong></td>
+<td>Invalid parameters: from_date, to_date, status. See Public API documentation for the correct data formats</td>
+<td><a href="#payment-error">Payment Error</a></td>
 </tr>
 <tr>
-<td>429</td>
-<td>Too Many Requests &ndash; You&rsquo;re requesting too many kittens! Slow down!</td>
+<td><strong>500</strong></td>
+<td>Downstream system error</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="produces">Produces</h4>
+
+<ul>
+<li><code class="prettyprint">application/json</code></li>
+</ul>
+
+<p><a name="getpayment"></a></p>
+
+<h3 id="find-payment-by-id">Find payment by ID</h3>
+<pre class="highlight plaintext"><code>GET /v1/payments/{paymentId}
+</code></pre>
+
+<h4 id="description">Description</h4>
+
+<p>Return information about the payment The Authorisation token needs to be specified in the &#39;authorization&rsquo; header as &#39;authorization: Bearer YOUR_API_KEY_HERE&rsquo;</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><strong>paymentId</strong>  <br><em>required</em></td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h4 id="responses">Responses</h4>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>OK</td>
+<td><a href="#paymentwithalllinks">PaymentWithAllLinks</a></td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error &ndash; We had a problem with our server. Try again later.</td>
+<td><strong>401</strong></td>
+<td>Credentials are required to access this resource</td>
+<td>No Content</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable &ndash; We&rsquo;re temporarially offline for maintanance. Please try again later.</td>
+<td><strong>404</strong></td>
+<td>Not found</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Downstream system error</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="produces">Produces</h4>
+
+<ul>
+<li><code class="prettyprint">application/json</code></li>
+</ul>
+
+<p><a name="cancelpayment"></a></p>
+
+<h3 id="cancel-payment">Cancel payment</h3>
+<pre class="highlight plaintext"><code>POST /v1/payments/{paymentId}/cancel
+</code></pre>
+
+<h4 id="description">Description</h4>
+
+<p>Cancel a payment based on the provided payment ID and the Authorisation token. The Authorisation token needs to be specified in the &#39;authorization&rsquo; header as &#39;authorization: Bearer YOUR_API_KEY_HERE&rsquo;. A payment can only be cancelled if it&rsquo;s in a state that isn&rsquo;t finished.</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><strong>paymentId</strong>  <br><em>required</em></td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h4 id="responses">Responses</h4>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>204</strong></td>
+<td>No Content</td>
+<td>No Content</td>
+</tr>
+<tr>
+<td><strong>400</strong></td>
+<td>Cancellation of payment failed</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td>Credentials are required to access this resource</td>
+<td>No Content</td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td>Not found</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Downstream system error</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="produces">Produces</h4>
+
+<ul>
+<li><code class="prettyprint">application/json</code></li>
+</ul>
+
+<p><a name="getpaymentevents"></a></p>
+
+<h3 id="return-payment-events-by-id">Return payment events by ID</h3>
+<pre class="highlight plaintext"><code>GET /v1/payments/{paymentId}/events
+</code></pre>
+
+<h4 id="description">Description</h4>
+
+<p>Return payment events information about a certain payment The Authorisation token needs to be specified in the &#39;authorization&rsquo; header as &#39;authorization: Bearer YOUR_API_KEY_HERE&rsquo;</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<table><thead>
+<tr>
+<th>Type</th>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>Path</strong></td>
+<td><strong>paymentId</strong>  <br><em>required</em></td>
+<td></td>
+<td>string</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<h4 id="responses">Responses</h4>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>200</strong></td>
+<td>OK</td>
+<td><a href="#paymenteventsinformation">PaymentEventsInformation</a></td>
+</tr>
+<tr>
+<td><strong>401</strong></td>
+<td>Credentials are required to access this resource</td>
+<td>No Content</td>
+</tr>
+<tr>
+<td><strong>404</strong></td>
+<td>Not found</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+<tr>
+<td><strong>500</strong></td>
+<td>Downstream system error</td>
+<td><a href="#payment-error">Payment Error</a></td>
+</tr>
+</tbody></table>
+
+<h4 id="produces">Produces</h4>
+
+<ul>
+<li><code class="prettyprint">application/json</code></li>
+</ul>
+
+<p><a name="definitions"></a></p>
+
+<h2 id="definitions">Definitions</h2>
+
+<p><a name="createpaymentrequest"></a></p>
+
+<h3 id="createpaymentrequest">CreatePaymentRequest</h3>
+
+<p>The Payment Request Payload</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>amount</strong>  <br><em>required</em></td>
+<td>amount in pence  <br><strong>Example</strong> : <code class="prettyprint">12000</code></td>
+<td>integer(int32)</td>
+</tr>
+<tr>
+<td><strong>description</strong>  <br><em>required</em></td>
+<td>payment description  <br><strong>Example</strong> : <code class="prettyprint">&quot;New passport application&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>reference</strong>  <br><em>required</em></td>
+<td>payment reference  <br><strong>Example</strong> : <code class="prettyprint">&quot;12345&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>return_url</strong>  <br><em>required</em>  <br><em>read-only</em></td>
+<td>service return url  <br><strong>Example</strong> : <code class="prettyprint">&quot;https://service-name.gov.uk/transactions/12345&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a name="payment-error"></a></p>
+
+<h3 id="payment-error">Payment Error</h3>
+
+<p>A Payment Error response</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>code</strong>  <br><em>optional</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;P0102&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>description</strong>  <br><em>optional</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;Invalid attribute value: amount. Must be less than or equal to 10000000&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>field</strong>  <br><em>optional</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;amount&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a name="payment-event-information"></a></p>
+
+<h3 id="payment-event-information">Payment Event information</h3>
+
+<p>A List of Payment Events information</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>_links</strong>  <br><em>optional</em></td>
+<td></td>
+<td><a href="#payment-event-link">payment-event-link</a></td>
+</tr>
+<tr>
+<td><strong>payment_id</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;hu20sqlact5260q2nanm0q8u93&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>state</strong>  <br><em>optional</em></td>
+<td>state</td>
+<td><a href="#payment-state">Payment state</a></td>
+</tr>
+<tr>
+<td><strong>updated</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td>updated  <br><strong>Example</strong> : <code class="prettyprint">&quot;updated_date&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a name="payment-state"></a></p>
+
+<h3 id="payment-state">Payment state</h3>
+
+<p>A structure representing the current state of the payment in its lifecycle.</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>code</strong>  <br><em>required</em>  <br><em>read-only</em></td>
+<td>What went wrong with the Payment if it finished with an error - error code  <br><strong>Example</strong> : <code class="prettyprint">&quot;P010&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>finished</strong>  <br><em>required</em>  <br><em>read-only</em></td>
+<td>Whether the payment has finished  <br><strong>Default</strong> : <code class="prettyprint">false</code></td>
+<td>boolean</td>
+</tr>
+<tr>
+<td><strong>message</strong>  <br><em>required</em>  <br><em>read-only</em></td>
+<td>What went wrong with the Payment if it finished with an error - English message  <br><strong>Example</strong> : <code class="prettyprint">&quot;User cancelled the payment&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>status</strong>  <br><em>required</em>  <br><em>read-only</em></td>
+<td>Current progress of the payment in its lifecycle  <br><strong>Example</strong> : <code class="prettyprint">&quot;created&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a name="paymenteventsinformation"></a></p>
+
+<h3 id="paymenteventsinformation">PaymentEventsInformation</h3>
+
+<p>A List of Payment Events information</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>_links</strong>  <br><em>optional</em></td>
+<td></td>
+<td><a href="#linksforevents">linksForEvents</a></td>
+</tr>
+<tr>
+<td><strong>events</strong>  <br><em>optional</em></td>
+<td></td>
+<td>&lt; <a href="#payment-event-information">Payment Event information</a> &gt; array</td>
+</tr>
+<tr>
+<td><strong>payment_id</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;hu20sqlact5260q2nanm0q8u93&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a name="paymentforsearchresult"></a></p>
+
+<h3 id="paymentforsearchresult">PaymentForSearchResult</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>_links</strong>  <br><em>optional</em></td>
+<td></td>
+<td><a href="#linksforsearchresults">linksForSearchResults</a></td>
+</tr>
+<tr>
+<td><strong>amount</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">1200</code></td>
+<td>integer(int64)</td>
+</tr>
+<tr>
+<td><strong>created_date</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;2016-01-21T17:15:00Z&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>description</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;Your Service Description&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>payment_id</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;hu20sqlact5260q2nanm0q8u93&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>payment_provider</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;worldpay&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>reference</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;your-reference&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>return_url</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;http://your.service.domain/your-reference&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>state</strong>  <br><em>optional</em></td>
+<td></td>
+<td><a href="#payment-state">Payment state</a></td>
+</tr>
+</tbody></table>
+
+<p><a name="paymentsearchresults"></a></p>
+
+<h3 id="paymentsearchresults">PaymentSearchResults</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>results</strong>  <br><em>optional</em></td>
+<td></td>
+<td>&lt; <a href="#paymentforsearchresult">PaymentForSearchResult</a> &gt; array</td>
+</tr>
+</tbody></table>
+
+<p><a name="paymentwithalllinks"></a></p>
+
+<h3 id="paymentwithalllinks">PaymentWithAllLinks</h3>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>_links</strong>  <br><em>optional</em></td>
+<td></td>
+<td><a href="#alllinksforapayment">allLinksForAPayment</a></td>
+</tr>
+<tr>
+<td><strong>amount</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">1200</code></td>
+<td>integer(int64)</td>
+</tr>
+<tr>
+<td><strong>created_date</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;2016-01-21T17:15:00Z&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>description</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;Your Service Description&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>payment_id</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;hu20sqlact5260q2nanm0q8u93&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>payment_provider</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;worldpay&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>reference</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;your-reference&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>return_url</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;http://your.service.domain/your-reference&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>state</strong>  <br><em>optional</em></td>
+<td></td>
+<td><a href="#payment-state">Payment state</a></td>
+</tr>
+</tbody></table>
+
+<p><a name="alllinksforapayment"></a></p>
+
+<h3 id="alllinksforapayment">allLinksForAPayment</h3>
+
+<p>self,events and next links of a Payment</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>cancel</strong>  <br><em>optional</em></td>
+<td>cancel</td>
+<td><a href="#paymentpostlink">paymentPOSTLink</a></td>
+</tr>
+<tr>
+<td><strong>events</strong>  <br><em>optional</em></td>
+<td>events</td>
+<td><a href="#paymentlink">paymentLink</a></td>
+</tr>
+<tr>
+<td><strong>next_url</strong>  <br><em>optional</em></td>
+<td>next_url</td>
+<td><a href="#paymentlink">paymentLink</a></td>
+</tr>
+<tr>
+<td><strong>next_url_post</strong>  <br><em>optional</em></td>
+<td>next_url_post</td>
+<td><a href="#paymentpostlink">paymentPOSTLink</a></td>
+</tr>
+<tr>
+<td><strong>self</strong>  <br><em>optional</em></td>
+<td>self</td>
+<td><a href="#paymentlink">paymentLink</a></td>
+</tr>
+</tbody></table>
+
+<p><a name="linksforevents"></a></p>
+
+<h3 id="linksforevents">linksForEvents</h3>
+
+<p>links for events resource</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>self</strong>  <br><em>optional</em></td>
+<td>self</td>
+<td><a href="#paymentlink">paymentLink</a></td>
+</tr>
+</tbody></table>
+
+<p><a name="linksforsearchresults"></a></p>
+
+<h3 id="linksforsearchresults">linksForSearchResults</h3>
+
+<p>links for search payment resource</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>cancel</strong>  <br><em>optional</em></td>
+<td>cancel</td>
+<td><a href="#paymentpostlink">paymentPOSTLink</a></td>
+</tr>
+<tr>
+<td><strong>events</strong>  <br><em>optional</em></td>
+<td>events</td>
+<td><a href="#paymentlink">paymentLink</a></td>
+</tr>
+<tr>
+<td><strong>self</strong>  <br><em>optional</em></td>
+<td>self</td>
+<td><a href="#paymentlink">paymentLink</a></td>
+</tr>
+</tbody></table>
+
+<p><a name="payment-event-link"></a></p>
+
+<h3 id="payment-event-link">payment-event-link</h3>
+
+<p>Resource link for a payment of a payment event</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>payment_url</strong>  <br><em>optional</em></td>
+<td>payment_url</td>
+<td><a href="#paymentlink">paymentLink</a></td>
+</tr>
+</tbody></table>
+
+<p><a name="paymentlink"></a></p>
+
+<h3 id="paymentlink">paymentLink</h3>
+
+<p>A link related to a payment</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>href</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;https://an.example.link/from/payment/platform&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>method</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;GET&quot;</code></td>
+<td>string</td>
+</tr>
+</tbody></table>
+
+<p><a name="paymentpostlink"></a></p>
+
+<h3 id="paymentpostlink">paymentPOSTLink</h3>
+
+<p>A POST link related to a payment</p>
+
+<table><thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Schema</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>href</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;https://an.example.link/from/payment/platform&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>method</strong>  <br><em>optional</em>  <br><em>read-only</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;POST&quot;</code></td>
+<td>string</td>
+</tr>
+<tr>
+<td><strong>params</strong>  <br><em>optional</em></td>
+<td></td>
+<td>&lt; string, object &gt; map</td>
+</tr>
+<tr>
+<td><strong>type</strong>  <br><em>optional</em></td>
+<td><strong>Example</strong> : <code class="prettyprint">&quot;multipart/form-data&quot;</code></td>
+<td>string</td>
 </tr>
 </tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
           </div>
       </div>
     </div>
